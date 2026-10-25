@@ -88,6 +88,7 @@ app.post("/users", async (req, res) => {
   res.send(result);
 });
 
+// app listen
 app.listen(PORT, () => {
   console.log(`the server is runnig in ${PORT}`);
 });

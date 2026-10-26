@@ -52,6 +52,10 @@ app.get("/users/:id", async (req, res) => {
     _id: new ObjectId(id),
   });
 
+  // const user = await usersCollection.findOne({
+  //   _id: new ObjectId(id),
+  // });
+
   if (!user) {
     return res.status(404).send({ message: "User not found" });
   }
@@ -94,3 +98,4 @@ app.post("/users", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`the server is runnig in ${PORT}`);
 });
+//

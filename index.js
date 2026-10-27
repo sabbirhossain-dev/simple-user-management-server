@@ -35,6 +35,7 @@ const mongoClient = await conectToMongoDB();
 const db = mongoClient.db("simple-user-management");
 const usersCollection = db.collection("users");
 
+//get user
 app.get("/users", async (req, res) => {
   const cursor = usersCollection.find({});
   const allUsers = await cursor.toArray();
@@ -52,9 +53,7 @@ app.get("/users/:id", async (req, res) => {
     _id: new ObjectId(id),
   });
 
-  // const user = await usersCollection.findOne({
-  //   _id: new ObjectId(id),
-  // });
+
 
   if (!user) {
     return res.status(404).send({ message: "User not found" });
